@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <h1>Make the most of your free time</h1>
+  <p>Find a good place to study, eat, relax, or hang out between classes.</p>
+  <div class="actions">
+    <a class="btn" href="{% url 'accounts:register' %}">Create an account</a>
+    <a class="btn btn-outline" href="{% url 'accounts:login' %}">Log in</a>
+  </div>
+</section>
+{% endblock %}

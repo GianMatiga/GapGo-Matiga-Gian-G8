@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Student dashboard | GapGo{% endblock %}
+{% block content %}
+<h1>Hi, {{ user.first_name|default:user.username }}</h1>
+<p class="muted">Student dashboard</p>
+
+<div class="grid">
+  <div class="card">
+    <h3>Find a place</h3>
+    <p class="muted">Enter your free time and pick an activity. Coming in the next phase.</p>
+  </div>
+  <div class="card">
+    <h3>Favorites</h3>
+    <p class="muted">Your saved places will show up here.</p>
+  </div>
+  <div class="card">
+    <h3>My profile</h3>
+    <p class="muted">Update your name, email, contact number, and photo.</p>
+    <a class="btn btn-outline btn-small" href="{% url 'accounts:profile' %}">View profile</a>
+  </div>
+</div>
+{% endblock %}

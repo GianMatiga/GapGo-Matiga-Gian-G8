@@ -1,0 +1,89 @@
+:root {
+  --bg: #f6f8f8;
+  --surface: #ffffff;
+  --text: #1c2a2a;
+  --muted: #5f7070;
+  --accent: #0f766e;
+  --accent-dark: #0b5b55;
+  --border: #dbe3e3;
+  --error-bg: #fdecec;
+  --error-text: #9b1c1c;
+  --ok-bg: #e4f5ee;
+  --ok-text: #0b5b55;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+a { color: var(--accent); }
+.container { max-width: 960px; margin: 0 auto; padding: 0 1rem; }
+main.container { padding-top: 1.5rem; padding-bottom: 3rem; }
+
+.nav { background: var(--surface); border-bottom: 1px solid var(--border); }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+.brand { font-weight: 700; font-size: 1.25rem; color: var(--accent); text-decoration: none; }
+.nav-links { display: flex; align-items: center; gap: 1rem; }
+.nav-links a { text-decoration: none; color: var(--text); }
+.nav-links a.btn { color: #fff; }
+.nav-links form { margin: 0; }
+.link-button { background: none; border: 0; padding: 0; font: inherit; color: var(--text); cursor: pointer; }
+.link-button:hover, .nav-links a:hover { color: var(--accent); }
+
+.hero { text-align: center; padding: 4rem 0 2rem; }
+.hero h1 { font-size: 2.25rem; margin-bottom: .5rem; }
+.hero p { color: var(--muted); font-size: 1.1rem; }
+.actions { display: flex; gap: .75rem; justify-content: center; margin-top: 1.5rem; }
+
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-bottom: 1rem; }
+.card h2, .card h3 { margin-top: 0; }
+.narrow { max-width: 440px; margin-left: auto; margin-right: auto; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
+.grid .card { margin-bottom: 0; }
+
+.field { margin-bottom: 1rem; }
+label { display: block; font-weight: 600; margin-bottom: .25rem; }
+input[type=text], input[type=email], input[type=password], input[type=file] {
+  width: 100%; padding: .55rem .7rem; border: 1px solid var(--border); border-radius: 6px; font: inherit; background: #fff;
+}
+input:focus-visible, .btn:focus-visible, .link-button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+small { display: block; color: var(--muted); margin-top: .25rem; }
+small ul { margin: .25rem 0 0; padding-left: 1.1rem; }
+.field-error { color: var(--error-text); margin: .25rem 0 0; font-size: .9rem; }
+
+.btn {
+  display: inline-block; padding: .55rem 1rem; border-radius: 6px; border: 1px solid var(--accent);
+  background: var(--accent); color: #fff; font: inherit; font-weight: 600; text-decoration: none; cursor: pointer;
+}
+.btn:hover { background: var(--accent-dark); }
+.btn-outline { background: transparent; color: var(--accent); }
+.btn-outline:hover { background: var(--ok-bg); }
+.btn-small { padding: .3rem .7rem; font-size: .9rem; }
+.full { width: 100%; }
+
+.messages { margin-bottom: 1rem; }
+.message { padding: .7rem 1rem; border-radius: 6px; margin-bottom: .5rem; }
+.message.success { background: var(--ok-bg); color: var(--ok-text); }
+.message.error { background: var(--error-bg); color: var(--error-text); }
+.message ul { margin: 0; padding-left: 1.1rem; }
+
+.muted { color: var(--muted); }
+.center { text-align: center; }
+
+.profile-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+.avatar { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; }
+.avatar.placeholder { display: flex; align-items: center; justify-content: center; background: var(--ok-bg); color: var(--accent); font-weight: 700; font-size: 1.5rem; }
+dl { display: grid; grid-template-columns: 140px 1fr; gap: .5rem 1rem; margin: 0 0 1.25rem; }
+dt { color: var(--muted); }
+dd { margin: 0; }
+
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: .5rem; border-bottom: 1px solid var(--border); }
+
+@media (max-width: 480px) {
+  dl { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 1.75rem; }
+}

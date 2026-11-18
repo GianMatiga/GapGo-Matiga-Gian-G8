@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}My profile | GapGo{% endblock %}
+{% block content %}
+<div class="card narrow">
+  <h2>My profile</h2>
+  <div class="profile-head">
+    {% if user.profile_photo %}
+      <img class="avatar" src="{{ user.profile_photo.url }}" alt="Profile photo">
+    {% else %}
+      <div class="avatar placeholder">{{ user.username|slice:":1"|upper }}</div>
+    {% endif %}
+    <div>
+      <strong>{{ user.get_full_name|default:user.username }}</strong>
+      <div class="muted">{{ user.get_role_display }}</div>
+    </div>
+  </div>
+  <dl>
+    <dt>Username</dt><dd>{{ user.username }}</dd>
+    <dt>Email</dt><dd>{{ user.email }}</dd>
+    <dt>Contact number</dt><dd>{{ user.contact_number|default:"Not added yet" }}</dd>
+  </dl>
+  <a class="btn" href="{% url 'accounts:profile_edit' %}">Edit profile</a>
+</div>
+{% endblock %}

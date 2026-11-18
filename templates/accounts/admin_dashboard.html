@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Admin dashboard | GapGo{% endblock %}
+{% block content %}
+<h1>Admin dashboard</h1>
+<p class="muted">Signed in as {{ user.username }}</p>
+
+<div class="grid">
+  <div class="card"><h3>{{ student_count }}</h3><p class="muted">Students</p></div>
+  <div class="card"><h3>{{ admin_count }}</h3><p class="muted">Admins</p></div>
+  <div class="card">
+    <h3>Manage</h3>
+    <p class="muted">Place listings and reports will be added in later phases.</p>
+    <a class="btn btn-outline btn-small" href="{% url 'admin:index' %}">Django admin</a>
+  </div>
+</div>
+
+<div class="card">
+  <h3>Newest students</h3>
+  {% if recent_students %}
+    <table>
+      <thead><tr><th>Username</th><th>Email</th><th>Joined</th></tr></thead>
+      <tbody>
+        {% for s in recent_students %}
+          <tr><td>{{ s.username }}</td><td>{{ s.email }}</td><td>{{ s.date_joined|date:"M d, Y" }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p class="muted">No students have signed up yet.</p>
+  {% endif %}
+</div>
+{% endblock %}
